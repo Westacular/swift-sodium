@@ -876,8 +876,12 @@
 		09A943DE1A4EB5F500C8A04F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
@@ -893,6 +897,7 @@
 					"$(PROJECT_DIR)/Sodium",
 					"$(PROJECT_DIR)/Sodium/libsodium",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.pureftpd.swiftodium.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Sodium;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -901,12 +906,17 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
 		};
 		09A943DF1A4EB5F500C8A04F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -924,6 +934,7 @@
 					"$(PROJECT_DIR)/Sodium",
 					"$(PROJECT_DIR)/Sodium/libsodium",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.pureftpd.swiftodium.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Sodium;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -931,12 +942,14 @@
 				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sodium $(PROJECT_DIR)/Sodium/libsodium";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;
 		};
 		09A943E11A4EB5F500C8A04F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -952,12 +965,14 @@
 				PRODUCT_NAME = SodiumTests;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
 		};
 		09A943E21A4EB5F500C8A04F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -965,10 +980,12 @@
 				);
 				INFOPLIST_FILE = SodiumTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.pureftpd.swiftsodium.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SodiumTests;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;
 		};
