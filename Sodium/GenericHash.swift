@@ -51,21 +51,23 @@ public class GenericHash {
         var result: Int32 = -1
 
         if let key = key {
+            let o = output
             result = output.withUnsafeMutableBytes { outputPtr in
                 message.withUnsafeBytes { messagePtr in
                     key.withUnsafeBytes { keyPtr in
                         crypto_generichash(
-                            outputPtr, output.count,
+                            outputPtr, o.count,
                             messagePtr, CUnsignedLongLong(message.count),
                             keyPtr, key.count)
                     }
                 }
             }
         } else {
+            let o = output
             result = output.withUnsafeMutableBytes { outputPtr in
                 message.withUnsafeBytes { messagePtr in
                     crypto_generichash(
-                        outputPtr, output.count,
+                        outputPtr, o.count,
                         messagePtr, CUnsignedLongLong(message.count),
                         nil, 0)
                 }
@@ -181,8 +183,9 @@ public class GenericHash {
          */
         public func final() -> Data? {
             var output = Data(count: outputLength)
+            let o = output
             let result = output.withUnsafeMutableBytes { outputPtr in
-                crypto_generichash_final(state!, outputPtr, output.count)
+                crypto_generichash_final(state!, outputPtr, o.count)
             }
             if result != 0 {
                 return nil
